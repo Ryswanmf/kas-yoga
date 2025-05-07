@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard Kas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #e1bee7);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    h1 {
+      color: #4A148C;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 80%;
+      max-width: 300px;
+    }
+    .btn {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #7B1FA2;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #6A1B9A;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    @media (min-width: 600px) {
+      .button-container {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dashboard Kas</h1>
+  <p>Silakan pilih aksi untuk melihat data transaksi:</p>
+
+  <div class="button-container">
+    <button class="btn" onclick="window.location.href='/api/transactions'">Data Kas Masuk & Keluar</button>
+    <button class="btn" onclick="window.location.href='/api/transactions/summary'">Lihat Ringkasan Kas</button>
+  </div>
+  <h3>Ambil Semua Transaksi</h3>
+  <p>Method: GET URL: http://localhost:8000/api/transactions</p>
+  <h3>Tambah Transaksi Baru</h3>
+  <p>Method: POST URL: http://localhost:8000/api/transactions</p>
+  <P>Body (JSON):{
+    "type": "income",
+    "amount": 10000,
+    "description": "Iuran anggota",
+    "date": "2025-05-07"
+  }
+  </P>
+  <h3>Ambil Semua Transaksi Berdasarkan Id</h3>
+  <p>Method: GET URL: http://localhost:8000/api/transactions/1</p>
+  <h3>Update Transaksi Berdasarkan ID</h3>
+  <p>Method: PUT URL: http://localhost:8000/api/transactions/1</p>
+  <p>Body (Json) : {
+    "type": "expense",
+    "amount": 5000,
+    "description": "Beli ATK",
+    "date": "2025-05-07"
+  }
+  </p>
+
+  <h3>Hapus Transaksi Berdasarkan ID</h3>
+  <p>Method: DELETE URL: http://localhost:8000/api/transactions/1</p>
+  
+</body>
+</html>
